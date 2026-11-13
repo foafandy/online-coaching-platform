@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-ink-900 text-zinc-100 antialiased;
+    direction: rtl;
+    background-image:
+      radial-gradient(900px 500px at 15% -10%, rgba(194, 176, 152, 0.08), transparent 60%),
+      radial-gradient(700px 500px at 100% 0%, rgba(255, 255, 255, 0.04), transparent 55%);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    background: rgba(194, 176, 152, 0.28);
+    color: #fff;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #2e322e transparent;
+  }
+
+  *::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: #2e322e;
+    border-radius: 999px;
+  }
+
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply text-[11px] font-semibold uppercase tracking-[0.22em] text-accent-500/90;
+  }
+
+  .display {
+    @apply font-display uppercase leading-[0.92] tracking-[0.01em];
+  }
+
+  .card {
+    @apply rounded-2xl border border-ink-700/80 bg-ink-850/80 shadow-card backdrop-blur;
+  }
+
+  .card-flat {
+    @apply rounded-2xl border border-ink-700/70 bg-ink-850/50;
+  }
+
+  .field-label {
+    @apply mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.14em] text-zinc-400;
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-ink-700 bg-ink-900/80 px-3.5 py-2.5 text-sm text-zinc-100 outline-none transition
+      placeholder:text-zinc-600 focus:border-accent-600/70 focus:ring-2 focus:ring-accent-500/20 disabled:opacity-60;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition
+      focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500/40 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .btn-primary {
+    @apply btn bg-accent-500 text-ink-950 hover:bg-accent-400 active:translate-y-px;
+  }
+
+  .btn-ghost {
+    @apply btn border border-ink-700 bg-ink-800/60 text-zinc-200 hover:border-ink-600 hover:bg-ink-750;
+  }
+
+  .btn-danger {
+    @apply btn border border-red-500/30 bg-red-500/10 text-red-300 hover:border-red-500/60 hover:bg-red-500/15;
+  }
+
+  .btn-sm {
+    @apply px-3 py-1.5 text-xs;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-[0.08em];
+  }
+
+  .table-wrap {
+    @apply w-full overflow-x-auto;
+  }
+
+  .table {
+    @apply w-full min-w-[640px] border-collapse text-sm;
+  }
+
+  .table thead th {
+    @apply border-b border-ink-700/80 px-4 py-3 text-right text-[11px] font-semibold uppercase tracking-[0.12em] text-zinc-500;
+  }
+
+  .table tbody td {
+    @apply border-b border-ink-800/80 px-4 py-3.5 align-middle text-zinc-300;
+  }
+
+  .table tbody tr:last-child td {
+    @apply border-b-0;
+  }
+
+  .table tbody tr {
+    @apply transition hover:bg-ink-800/40;
+  }
+}
+
+@media print {
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-card {
+    border: 1px solid #ddd !important;
+    background: #fff !important;
+    color: #000 !important;
+    box-shadow: none !important;
+  }
+}
